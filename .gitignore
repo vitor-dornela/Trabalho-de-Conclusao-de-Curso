@@ -1,0 +1,16 @@
+# Modelo treinado (arquivo pesado, ~846 MB)
+# Baixe em: https://github.com/joaquinluque/MLBatLife
+*.pkl
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
