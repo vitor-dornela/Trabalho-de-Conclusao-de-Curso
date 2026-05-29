@@ -1,10 +1,5 @@
-# Modelo treinado (arquivo pesado, ~846 MB)
-# Baixe em: https://github.com/joaquinluque/MLBatLife
-*.pkl
-
-# Dados OPSD (851 MB) — baixar via notebook ou link abaixo
-# https://data.open-power-system-data.org/household_data/2020-04-15/
-code/data/opsd/household_data_1min_singleindex.csv
+# Arquivos grandes rastreados pelo Git LFS (ver .gitattributes):
+# *.pkl, code/data/opsd/*.csv, code/data/brasil/*.csv, code/data/input_profile_sample.csv
 
 # Python
 __pycache__/

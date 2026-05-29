@@ -1,0 +1,5 @@
+*.pkl filter=lfs diff=lfs merge=lfs -text
+code/data/opsd/household_data_1min_singleindex.csv filter=lfs diff=lfs merge=lfs -text
+code/data/opsd/profile_residential*.csv filter=lfs diff=lfs merge=lfs -text
+code/data/brasil/*.csv filter=lfs diff=lfs merge=lfs -text
+code/data/input_profile_sample.csv filter=lfs diff=lfs merge=lfs -text
