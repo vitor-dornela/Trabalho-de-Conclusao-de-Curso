@@ -1,0 +1,4 @@
+Perfil,Descrição,Dias,SOH_final,SOH_min,T1_médio (W),T4_médio (W)
+residential3,"Urbano, PV, consumo padrão",495,0.927861,0.927861,21.6,803.4
+residential4,"Urbano, PV, bomba de calor + VE",847,0.895641,0.895641,-434.9,1421.7
+residential6,"Urbano, PV, perfil alternativo",694,0.921586,0.921586,48.4,454.7

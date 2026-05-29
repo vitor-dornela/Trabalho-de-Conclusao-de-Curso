@@ -1,0 +1,13 @@
+Parâmetro,Valor
+Local,Vitória-ES
+Latitude,-20.32
+Longitude,-40.34
+Potência FV (kWp),5
+Consumo mensal (kWh),200
+Estratégia,Greedy
+Qnom (kWh),5
+Dias simulados,1825
+SOH final,0.805467
+SOH mín,0.805467
+T1 médio (W),-616.6
+T4 médio (W),931.8

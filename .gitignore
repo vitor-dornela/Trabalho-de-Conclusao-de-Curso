@@ -2,6 +2,10 @@
 # Baixe em: https://github.com/joaquinluque/MLBatLife
 *.pkl
 
+# Dados OPSD (851 MB) — baixar via notebook ou link abaixo
+# https://data.open-power-system-data.org/household_data/2020-04-15/
+code/data/opsd/household_data_1min_singleindex.csv
+
 # Python
 __pycache__/
 *.py[cod]
