@@ -1,0 +1,809 @@
+UNIVERSIDADE FEDERAL DO ESPÍRITO SANTO
+CENTRO TECNOLÓGICO
+DEPARTAMENTO DE ENGENHARIA ELÉTRICA
+PROJETO DE GRADUAÇÃO
+VITOR DORNELA MASCARENHAS
+ESTUDO DO EFEITO CAUSADO PELA SUJIDADE NA USINA FOTOVOLTAICA DA UFES
+VITÓRIA
+2022
+VITOR DORNELA MASCARENHAS
+ESTUDO DO EFEITO CAUSADO PELA SUJIDADE NA USINA FOTOVOLTAICA DA UFES
+Parte manuscrita do Projeto de Graduação do aluno Vitor Dornela Mascarenhas, apresentada ao Departamento de Engenharia Elétrica do Centro Tecnológico da Universidade Federal do Espírito Santo, como requisito parcial para obtenção do grau de Engenheiro Eletricista.
+__________________________________
+Profa. Dra. Marcia H. M. Paiva
+Coordenadora de Projeto de Graduação
+___________________________________
+Profa. Dra. Jussara F. Fardin
+Orientadora
+___________________________________
+Bel. Daniel C. Pompermayer
+Coorientador
+___________________________________
+Vitor Dornela Mascarenhas
+Aluno
+VITÓRIA
+2022
+Ao meu querido avô Zequinha,
+AGRADECIMENTOS
+Agradeço a Deus por ter me abençoado em todos os momentos da minha vida. Agradeço aos meus pais, Grasiela e José, por todo esforço, dedicação e sacrifício que fizeram para seu filho chegar a finalizar uma faculdade. Agradeço aos meus avós, sempre presentes, Tercia, Ritinha e, especialmente, Zequinha, que infelizmente nos deixou no decorrer deste trabalho. Aos meus padrinhos, Glicia e Beto, agradeço pelo amparo e presença quando mais precisei. Ao meu irmão, agradeço pelo companheirismo e genuíno interesse em me ver melhor a cada dia. A todos os familiares, que, sempre que puderam, me estenderam a mão, tem a minha mais profunda gratidão.
+Agradeço aos meus persistentes amigos de escola, faculdade e intercambio, pelos tantos momentos compartilhados, bons e ruins. Tê-los ao meu lado foi uma das bençãos para conseguir caminhar toda essa jornada, e a deixou muito mais leve. Vocês marcaram minha vida e os levarei comigo em meu coração.
+Agradeço a professora Jussara e ao Daniel por aceitarem o desafio de me orientar, pela paciência e por sempre me mostrarem um caminho, mesmo quando ele parecia não existir mais. Agradeço também à Superintendência de Infraestrutura da Ufes pelo período de estágio ali prestado, que serviu de inspiração para o tema deste trabalho e me proporcionou conhecer meu coorientador, que não poupou esforços para ajudar na parte prática e teórica deste trabalho. Aproveito também para agradecer ao meu terapeuta, Clóvis, a que sempre me motivou e ainda cedeu o espaço de sua própria casa para que eu pudesse escrever este trabalho. A vocês, serei para sempre grato pela disponibilidade, mesmo em um momento de pandemia, tão difícil e desafiador. Levarei os ensinamentos que me passaram pelo resto da minha vida.
+E não menos importante, agradeço à Universidade Federal do Espírito Santo pelo ensino público, gratuito e de qualidade e a todos os professores e funcionários do Departamento de Engenharia Elétrica e de outros departamentos, por contribuírem na minha formação. Cada um de vocês tem, sem dúvida, participação no que me tornei pessoal e profissionalmente.
+Por fim, agradeço veementemente a todos aqui citados, que são a razão de todo meu esforço e dedicação. Sem vocês teria sido impossível chegar até aqui.
+RESUMO
+Este trabalho propõe-se a realizar um estudo de caso acerca do efeito da sujidade no desempenho de módulos fotovoltaicos de uma usina fotovoltaica localizada no telhado de uma edificação da Universidade Federal do Espírito Santo (Ufes). Os módulos estudados neste trabalho foram comissionados em novembro de 2019. Até a realização deste trabalho, os módulos estudados nunca foram limpos. Para o estudo, foram coletados dados de cinco diferentes strings em um sistema fotovoltaico localizado no prédio CT XII da universidade. Destas cinco strings, quatro foram limpas em quatro diferentes intervalos de tempo de limpeza, a saber, de 7, 14, 21 e 28 dias durante um mês. O período de observação e aquisição dos dados de geração foi de 5 semanas, sendo a primeira coleta realizada uma semana antes do início da limpeza. A última coleta deu-se uma semana após a última limpeza. Os dados coletados apresentam registros instantâneos da geração colhidos em intervalos de 2 minutos. Para a aquisição de dados foi usado o sistema eletrônico de gerenciamento de geração de energia da usina fotovoltaica da Ufes, o
+Smart
+Energy Management System da Goodwe (Sems Portal).. A partir disto, foram feitas análises dos impactos causados pela deposição de sujidade na geração de energia elétrica proporcionada pelo sistema fotovoltaico.
+Palavras-chave: Deposição. Efeito da sujidade. Energia solar. Limpeza de módulos fotovoltaicos.
+Manutenção
+fotovoltaica
+.
+Sistemas
+fotovoltaicos
+.
+ABSTRACT
+This work proposes a case study that analyzes the soiling effect on the performance of photovoltaic power plant modules at the Federal University of Espírito Santo (Ufes), which have never been cleaned since its installation in 2019. To this end, data will be collected from five different strings in a photovoltaic system located in the university's CT12 building. Of these five strings, four will be cleaned at four different cleaning time intervals, namely 7, 14, 21 and 28 days during one month. The period of observation and acquisition of generation data is 5 weeks, been the first information gathering one week before the starting cleaning, followed at 2-minute intervals, until the end of the study, which occurs one week after the last cleaning. For data acquisition, an electronic energy generation management system of Ufes photovoltaic plant was used, the Smart Energy Management System by Goodwe (Sems Portal), supplied by the manufacturer of the photovoltaic modules. From this, impact analyzes caused by the dust deposition on the electricity generation in the photovoltaic power plant were made, and its results discussed.
+Keywords: Solar energy. Photovoltaic system. Dust deposition. Soiling effect. Photovoltaic cleaning.
+Photovoltaic
+maintenance
+.
+LISTA DE FIGURAS
+TOC \c "Figura" Figura 1 – Exemplo de sujidade em módulos fotovoltaicos sujos e após limpeza	 PAGEREF _Toc89728390 \h 24
+Figura 2 – Robô limpando um sistema fotovoltaico	 PAGEREF _Toc89728391 \h 25
+Figura 3 – Representação de um box plot	 PAGEREF _Toc89728392 \h 29
+Figura 4 – Vista aérea do sistema fotovoltaico utilizado no estudo	 PAGEREF _Toc89728393 \h 36
+Figura 5 – Corte da vista superior do edifício com as strings utilizadas no estudo realçadas	 PAGEREF _Toc89728394 \h 38
+Figura 6 – Parapeito do edifício CTXII	 PAGEREF _Toc89728395 \h 39
+Figura 7 – Luvas isolantes classe 00 de 1 kVA	 PAGEREF _Toc89728396 \h 40
+Figura 8 – Ilustração do tipo de Mop com balde utilizado	 PAGEREF _Toc89728397 \h 41
+Figura 9 – Marcação de 6L no balde	 PAGEREF _Toc89728398 \h 42
+Figura 10 – Aspecto da água após limpeza em 4 módulos fotovoltaico	 PAGEREF _Toc89728399 \h 42
+Figura 11 – Diferença visual após primeira limpeza da fileira inferior de módulos fotovoltaicos	 PAGEREF _Toc89728400 \h 43
+Figura 12 – Portal eletrônico de geração de energia SEMS	 PAGEREF _Toc89728401 \h 47
+Figura 13 – Datalogger do inversor	 PAGEREF _Toc89728402 \h 47
+Figura 14 – Exemplo de estação com piranômetro	 PAGEREF _Toc89728403 \h 48
+Figura 15 – Localização da estação meteorológica na Ufes	 PAGEREF _Toc89728404 \h 49
+LISTA DE GRÁFICOS
+TOC \c "Gráfico" Gráfico 1 – Deposição média mensal na RMGV (g/m²)	 PAGEREF _Toc88913104 \h 16
+Gráfico 2 – Eficiência de módulos FV considerando taxa de deposição	 PAGEREF _Toc88913105 \h 17
+Gráfico 3 – Distribuição das adições líquidas anuais na geração elétrica total global	 PAGEREF _Toc88913106 \h 19
+Gráfico 4 – Adições anuais mundial por fonte renovável	 PAGEREF _Toc88913107 \h 20
+Gráfico 5 – LCOE global de geração em larga escala recém comissionadas, 2010-2020	 PAGEREF _Toc88913108 \h 21
+Gráfico 6 – Projeção STEPS da distribuição da matriz energética em economias desenvolvidas e emergentes até 2050	 PAGEREF _Toc88913109 \h 22
+Gráfico 7 – Maiores adições de geração fotovoltaica no mundo em 2020	 PAGEREF _Toc88913110 \h 22
+Gráfico 9 – Box plot de durações de limpezas por módulo fotovoltaico pela semana e data da operação	 PAGEREF _Toc88913111 \h 46
+Gráfico 10 – Dados de irradiância captado pelo piranômetro da estação meteorológica	 PAGEREF _Toc88913112 \h 51
+LISTA DE QUADROS
+TOC \c "Quadro" Quadro 1 – Dados dos módulos fotovoltaicos	 PAGEREF _Toc89274948 \h 37
+Quadro 2 – Organização de strings e MPPTs no inversor 	 PAGEREF _Toc89274949 \h 38
+Quadro 3 – Metodologia de limpeza	 PAGEREF _Toc89274950 \h 43
+LISTA DE TABELAS
+TOC \c "Tabela" Tabela 1 – Amostragem de semanas sem limpeza – semana a semana (desconsiderando 7 a 13 de abril)	 PAGEREF _Toc89274966 \h 44
+Tabela 2 – Quantidade de strings em cada estado de sujidade a cada semana	 PAGEREF _Toc89274967 \h 45
+Tabela 3 – Média e desvio padrão do tempo em minutos de limpezas por módulo	 PAGEREF _Toc89274968 \h 45
+Tabela 4 – Fator de desempenho das 5 strings na semana 0 às 14:00	 PAGEREF _Toc89274969 \h 50
+LISTA DE ABREVIATURAS E SIGLAS
+CND	Contribuição Nacionalmente Determinada
+DDD	Diferença de desempenho diária
+DDH 	Diferença de desempenho horária
+EC
+European
+Commission
+FD	Fator de desempenho
+FV	Fotovoltaico
+GEE	Gases do efeito estufa
+IEA
+International
+Energy
+Agency
+INMET	Instituto Nacional de Meteorologia
+LCOE	Custo nivelado da energia
+MFV	Módulo fotovoltaico
+MP	Material particulado
+MPPT	Rastreador de Máximo Ponto de Potência
+ONU	Organização das Nações Unidas
+RMGV	Região Metropolitana da Grande Vitória
+SEMS
+Smart
+Energy Management System
+SFV	Sistema fotovoltaico
+SI/Ufes	Superintendência de Infraestrutura da Ufes
+Ufes	Universidade Federal do Espírito Santo
+UFV	Usina fotovoltaica
+UNFCCC	Convenção-Quadro das Nações Unidas sobre a Mudança do Clima
+USD	Dólares americanos
+SUMÁRIO
+TOC \o "1-5" \h \z 1	INTRODUÇÃO	 PAGEREF _Toc89728352 \h 14
+1.1	Justificativa	 PAGEREF _Toc89728353 \h 16
+1.2	Objetivos	 PAGEREF _Toc89728354 \h 17
+1.2.1	Objetivo geral	 PAGEREF _Toc89728355 \h 17
+1.2.2	Objetivos específicos	 PAGEREF _Toc89728356 \h 17
+1.3	Organização do trabalho	 PAGEREF _Toc89728357 \h 18
+2	REFERENCIAL TEÓRICO	 PAGEREF _Toc89728358 \h 19
+2.1	Importância da adoção de geração fotovoltaica	 PAGEREF _Toc89728359 \h 19
+2.2	Deposição de material particulado	 PAGEREF _Toc89728360 \h 23
+2.3	Limpeza em usinas fotovoltaicas	 PAGEREF _Toc89728361 \h 24
+2.4	Índices de desempenho	 PAGEREF _Toc89728362 \h 25
+2.4.1	Fator de desempenho	 PAGEREF _Toc89728363 \h 26
+2.4.2	Diferença de desempenho	 PAGEREF _Toc89728364 \h 26
+2.5	Ferramentas estatísticas	 PAGEREF _Toc89728365 \h 27
+2.5.1	Filtro utilizando limites de box plot	 PAGEREF _Toc89728366 \h 27
+2.5.2	Significância estatística	 PAGEREF _Toc89728367 \h 29
+2.5.3	Análise de variância (ANOVA)	 PAGEREF _Toc89728368 \h 35
+2.5.4	Teste de Student (teste-t)	 PAGEREF _Toc89728369 \h 32
+3	METODOLOGIA E ETAPAS DE DESENVOLVIMENTO	 PAGEREF _Toc89728370 \h 35
+3.1	Definição do Sistema Fotovoltaico	 PAGEREF _Toc89728371 \h 36
+3.2	Trabalho em altura e risco de choque elétrico	 PAGEREF _Toc89728372 \h 38
+3.2.1	Identificação do perigo	 PAGEREF _Toc89728373 \h 39
+3.2.2	Análise de risco	 PAGEREF _Toc89728374 \h 39
+3.2.3	Estabelecimento do procedimento de segurança	 PAGEREF _Toc89728375 \h 40
+3.3	Execução da limpeza de strings do SFV	 PAGEREF _Toc89728376 \h 40
+3.4	Aquisição de dados de geração de energia do SFV e da estação meteorológica	 PAGEREF _Toc89728377 \h 46
+3.5	Método de estudo dos dados adquiridos 	 PAGEREF _Toc89728378 \h 49
+3.5.1	Índices de desempenho	 PAGEREF _Toc89728379 \h 49
+3.5.1.1	Fator de desempenho	 PAGEREF _Toc89728380 \h 50
+3.5.1.2	Diferença de desempenho	 PAGEREF _Toc89728381 \h 51
+3.5.2	Análise estatística	 PAGEREF _Toc89728382 \h 54
+3.5.2.1	Teste de variância (ANOVA)	 PAGEREF _Toc89728383 \h 54
+3.5.2.2	Teste de student (teste-t)	 PAGEREF _Toc89728384 \h 54
+4	RESULTADOS	 PAGEREF _Toc89728385 \h 56
+5	CONCLUSÃO	 PAGEREF _Toc89728386 \h 57
+REFERÊNCIAS BIBLIOGRÁFICAS	 PAGEREF _Toc89728387 \h 58
+ANEXO A – DATASHEET DO INVERSOR GW35KLV-MT	 PAGEREF _Toc89728388 \h 62
+ANEXO B – DATASHEET DO MÓDULO JAM60S03 300-320/PR	 PAGEREF _Toc89728389 \h 64
+INTRODUÇÃO
+O ano de 2020 foi marcado pela pandemia do coronavírus Sars-Cov-2 que ocasionou uma crise sanitária e humanitária mundial, impactando negativamente diversos setores produtivos. Apesar da crise advinda da disseminação do vírus, o setor de energias renováveis continuou em crescimento de ritmo acelerado. Foi um ano de novas normas no setor e também de fortalecimento nos planos de nações para alcançar a emissão zero de gases de efeito estufa (GEE), uma meta cada vez mais cobrada por cidadãos e por organizações da sociedade civil  CITATION REN21 \l 1031 (R, 2021).
+Uns dos responsáveis pela mudança climática, os combustíveis fósseis, contribuem fortemente para a poluição do planeta e para a perda de sua biodiversidade. A fim de reduzir os efeitos catastróficos do aquecimento global, é necessário que até 2050 sejam cumpridas políticas energéticas para evitar um aumento maior do que 1,5 °C na temperatura média global. A
+International
+Energy
+Agency
+(IEA) destaca que para que isso seja possível, pelo menos 70% de toda fonte de energia produzida deve ser de origem renovável, principalmente fotovoltaica e eólica, e que 90% do consumo total de energia venha da matriz elétricaCITATION IEA21 \t  \l 1031  (IEA, 2021).
+Apesar da participação total da energia oriunda de fontes fósseis no montante de energia consumida em todo o mundo não ter mudado consideravelmente na última década (80,3% em 2010 frente a 80,2% hoje), a participação de fontes renováveis tem aumentado principalmente na matriz elétrica. No ano de 2020, a participação de fontes renováveis chegou a 83% do total de novas fontes de energia elétrica comissionadas, das quais a fonte solar fotovoltaica (FV) apresenta maioria absoluta: 54% do total anual e adição recorde de 139 GW  CITATION REN21 \l 1031 (R, 2021).
+O custo de instalação de usinas fotovoltaicas (UFV) vem decrescendo de forma contínua na última década. Ao longo do ano de 2020, o custo para instalar uma UFV decresceu globalmente em 7%. Entre 2010 e 2020 o custo para instalações de larga escala diminuiu 85%, de maneira a tornar a geração FV competitiva em relação ao custo de geração de fontes fósseis. Cerca de 45,5 GW de projetos comissionados de geração solar FV no ano de 2020 foram mais baratos do que a fonte mais barata de geração por combustível fóssil. O Brasil registrou, no ano de 2019, com o Leilão de Nova Energia A-4, o terceiro menor custo comissionado de geração FV no mundo CITATION IRE21 \l 1031  (IRENA, 2021).
+Políticas de governo são fundamentais para o avanço tecnológico e para a redução de custos de módulos fotovoltaicos (MFV). Segundo DOE (2021), está nos planos da atual administração Biden-Harris dos EUA, uma redução maior do que 50% no custo associado a fontes solares de energia até 2030 em relação aos preços atuais. Já segundo a EC (2014), países da União Europeia acordaram em objetivos para o Quadro Climático e de Energia 2030 que incluem consumo energético de pelo menos 32% de fontes renováveis, redução de 40% na emissão de gases de efeito estufa em relação a 1990 e melhoria na eficiência energética de pelo menos 32,5%. De acordo com a UNFCCC (2020), o Brasil reafirmou à ONU em 2020 a sua Contribuição Nacionalmente Determinada (CND) relativa ao Acordo de Paris, onde assumiu o compromisso de redução de 37% de GEE até 2025 em relação a 2005 e de 43% até 2030. Além do acordo original de 2015, o país também adicionou uma meta de neutralidade climática relativa a GEE até 2060.CITATION Eur14 \n  \t  \l 1031  (2014).CITATION UNF20 \n  \t  \l 1031  (2020)CITATION USD21 \n  \t  \l 1031  (2021)
+Em âmbito nacional, mesmo com todas as dificuldades impostas pela pandemia como: diminuição da demanda energética global e atraso em investimentos e projetos, as instalações anuais de energia solar fotovoltaica no Brasil mantiveram seu crescimento CITATION Giu21 \l 1031  (FONTES, 2021). O país está entre os 10 países do mundo que mais adicionaram a geração solar fotovoltaica à sua matriz em 2020. Neste ano registraram-se 3,1 GW de adições, 68,6% a mais do que em 2019, das quais 74,4% são provenientes de geração distribuída residencial. Para efeito de comparação: a adição de capacidade hidrelétrica, a principal fonte de geração de energia elétrica do país com 62% da capacidade operacional total de energia, foi de apenas 177 MW em 2020. Pelo sétimo ano consecutivo, os investimentos em capacidade de energia renovável no Brasil cresceram, com aumento de 23% em 2020 CITATION REN \l 1031 (RB, 2021).
+Um dos desafios para manter a eficiência da geração FV é a deposição de material particulado sobre os módulos. Esta deposição prejudica o desempenho dos geradores e muitas vezes não é levada em consideração no cálculo do Custo Nivelado de Energia (LCOE), uma métrica utilizada para atestar a viabilidade de projetos de geração fotovoltaica. A sujidade reduz a transmissibilidade da luz para as células fotovoltaicas, reduzindo, assim, a sua eficiência. Esse fator de deposição é ocasionado tanto por causas naturais quanto é influenciado por atividades humanas. Por isso, a otimização da limpeza de sistemas fotovoltaicos é necessária e requer um equilíbrio entre os custos de manutenção, a frequência de limpeza e o ganho proporcionado na produção energética  CITATION AMI21 \l 1031 (AMIRI et al., 2021).
+Perdas por deposição de material particulado (MP) dependem de condições meteorológicas locais, condições de instalação dos módulos FV (inclinação, orientação, vegetação), características locais (proximidade a autoestradas, efluentes industriais, área urbana, rural, deserto) e o tipo de tecnologia empregada. Perdas anuais por acumulo de MP podem variar de 10 a 30% mesmo em condições moderadas de presença de poeira. Em regiões desérticas essa perda passa de 30%, apesar de serem as regiões com mais disponibilidade solar CITATION Sue21 \l 1031  (COSTA; KAZMERSKI; DINIZ, 2021).
+Dessa forma, a proposta deste trabalho é realizar um estudo que corrobore se o sistema fotovoltaico (SFV) da Ufes analisado tem perdas de desempenho por sujidade, e a partir disto propor um regime de limpeza, levando em consideração o ganho financeiro proporcionado.
+Justificativa
+Segundo Maghami e outros (2016), a sujidade ocasionada pela deposição de material particulado, das mais diversas origens, sobre a superfície de módulos fotovoltaicos, altera o desempenho de sistemas fotovoltaicos. Esse impacto deve ser considerado em uma usina fotovoltaica de minigeração, como a da Ufes, de, aproximadamente, 5 MWp.
+Pelo  REF _Ref80885862 \h \* lower gráfico 1, pode-se obter a taxa de deposição média de material particulado (MP) na Região Metropolitana da Grande Vitória (RMGV). O período de trabalho foi realizado no mês de abril e maio, então é suposto por este estudo que há uma taxa de deposição entre 6 e 8 g/m² para o nosso estudo de caso CITATION San11 \l 1031 (MÉRI SANTOS; REIS JÚNIOR, 2011).
+Gráfico  SEQ Gráfico \* ARABIC 1 – Deposição média mensal na RMGV (g/m²)
+Fonte: Santos e Reis Júnior (2011).CITATION San11 \l 1031  (MÉRI SANTOS; REIS JÚNIOR, 2011)
+A eficiência do módulo fotovoltaico (MFV) é influenciada pela deposição total de material particulado (MP) e também pelo tamanho do particulado. Em estudos analisados por Zaihidee e outros (2016), foi-se observado no  REF _Ref64578740 \h  \* lower gráfico 2 que essa densidade de deposição de MP pode reduzir a eficiência de MFV entre 60 a 90% da eficiência nominal, a depender de características do material depositado.
+Gráfico  SEQ Gráfico \* ARABIC 2 – Eficiência de módulos FV considerando taxa de deposição
+Fonte: Adaptado de Zaihidee e outros (2016)
+Objetivos
+Objetivo geral
+O objetivo desse estudo é averiguar se a sujidade, isto é, deposição de material particulado sobre a superfície das células, afeta o desempenho dos MFV instalados na Ufes, e assim propor um regime de limpeza de intervalo ótimo.
+Objetivos específicos
+Para que o objetivo principal seja atingido, alguns objetivos específicos são requeridos:
+Realizar a limpeza manual dos módulos fotovoltaicos segundo o regime proposto pelo estudo;
+Obter dados de geração da usina fotovoltaica de acordo com o período de aquisição determinado pelo estudo;
+Fazer uma análise dos dados obtidos no intervalo de tempo proposto; e
+Propor um regime de limpeza ótimo de acordo com o estudo abordado.
+Organização do trabalho
+Este trabalho está dividido em 5 seções. Primeiramente foi desenvolvida uma introdução ao tema que destaca a importância do crescimento da geração de energia de origem fotovoltaica, seus âmbitos ecológicos, econômicos, e os desafios para implementação e manutenção. Na subseção seguinte explica-se a justificativa do estudo proposto. Posteriormente definiu-se o objetivo geral e objetivos específicos do trabalho.
+A seção 2 compõe o referencial teórico a respeito da evolução da energia solar no mundo e no Brasil, do depósito de sujidade em módulos fotovoltaicos, dos tipos de sujidade mais frequentes na Região Metropolitana da Grande Vitória (RMGV) e dos fatores que influenciam na perda de rendimento do módulo fotovoltaico.
+Na seção 3 é descrita a metodologia adotada para planejamento e realização do estudo.
+Na seção 4 é realizada a análise dos resultados e proposto um regime de limpeza adequado segundo o estudo.
+Na seção 5 é apresentado conclusões do trabalho e possíveis continuações de trabalhos futuros.
+REFERENCIAL TEÓRICO
+Aqui precisa-se embasamento para poder entender as causas do problema da sujidade, como se faz para resolver o problema, apoio para as ações que foram executadas durante a parte prática, etc.
+A análise do potencial de radiação solar é essencial para determinar a viabilidade de implantação de um sistema fotovoltaico no local de interesse.
+Importância da adoção de geração fotovoltaica
+Observando isoladamente a geração de energia elétrica no  REF _Ref81471986 \h \* lower  gráfico 3, é possível observar essa mudança ao longo da última década. No ano de 2020, 83% das adições líquidas globais foram de energias renováveis  CITATION REN21 \l 1031 (R, 2021).
+Gráfico 3 – Distribuição das adições líquidas anuais na geração elétrica total global
+Fonte: Adaptado de REN21 (2021).
+Levando em consideração as adições de fontes renováveis, a de maior participação em 2020 foi a solar fotovoltaica (FV), com adição de 139 GW dentre os 256 GW de todas fontes renováveis, do qual é apresentado no  REF _Ref80804581 \h \* lower gráfico 4.
+Gráfico 4 – Adições anuais mundial por fonte renovável
+Fonte: Adaptado de REN21 (2021).
+O custo de instalação de usinas fotovoltaicas (UFV) vem decrescendo de forma contínua na última década. No ano de 2020 decresceu globalmente em 7% em relação a 2019, e entre 2010 e 2020 o custo para instalações de larga escala diminuiu 85%, saindo em dólares americanos (USD), de 0.381/kWh para 0.057/kWh em custo de energia nivelado (LCOE), representado no  REF _Ref84066649 \h \* lower gráfico 5. No gráfico é observado que o declínio nos preços de geração da fonte solar FV chega a ponto de tornar-se competitiva em relação a custo de geração de fontes fosseis. Mesmo sem suporte financeiro, em 2020, cerca de 45,5 GW de projetos comissionados de geração solar FV foram mais baratas que a fonte mais barata de geração por combustível fóssil. O Brasil conseguiu no ano de 2019 com o Leilão de Nova Energia A-4 o terceiro leilão operacional mais barato no mundo, alcançando o valor de USD 0,0173/kWh  CITATION IRE21 \l 1031 (IRENA, 2021).
+Gráfico 5 – LCOE global de geração em larga escala recém comissionadas, 2010-2020
+Fonte: Adaptado de IRENA (2021).
+Nota: Os dados são do ano de comissionamento. O diâmetro do círculo representa a capacidade do projeto em MW, no seu centro fica o custo operacional de cada projeto em USD/kWh. As linhas grossas representam valores da média ponderada do custo de energia nivelado (LCOE) mundial de plantas comissionadas em cada ano (2010 e 2020). A faixa única que se estende em todo gráfico representa o alcance de custos de geração alimentadas por combustíveis fósseis, enquanto que a faixa de cada tecnologia e ano representa os percentis 5 e 95 para projetos de fontes renováveis.
+Para evitar um cenário alarmante no contexto de mudanças climáticas, segundo a IEA (2021) pelo menos 70% de toda fonte de energia deve ser de origem renovável, principalmente fotovoltaica e eólica. No  REF _Ref80872643 \h \* lower gráfico 6, de
+TWh
+gerados, é possível observar que isso seja uma realidade para economias desenvolvidas, porém a participação de fontes fósseis, principalmente o carvão em economias emergentes, sofrerá redução em termos porcentuais, mas tendencia de platô em termos absolutos, ficando evidente uma resistência nessas economias de abandonar fontes tradicionais de geração de energia não renováveis. Essa projeção no  REF  _Ref80872643 \* Lower \h gráfico 6 do IEA se baseia no
+Stated
+Policies
+Scenario
+(STEPS), ou seja, uma projeção que considera que Estados consigam entregar resultados de acordo com as políticas declaradas. É destacado principalmente o aumento do uso de fontes renováveis tanto em economias emergentes quanto desenvolvidas até 2050 CITATION IEA21 \l 1031 (IEA, 2021).
+Gráfico 6 – Projeção STEPS da distribuição da matriz energética em economias desenvolvidas e emergentes até 2050
+Fonte: Adaptado de IEA (2021).
+Do total dos investimentos mundial, o Brasil foi responsável por 2,9% em capacidade de energia renovável em 2020, e está entre os 10 que mais adicionaram a geração fotovoltaica, como é possível observar no  REF _Ref81942487 \h \* lower gráfico 7. Brasil teve também grande destaque na adição de geração eólica, ficando em terceiro, somente atrás de China e EUA   CITATION REN21 \l 1031 (R, 2021).
+Gráfico 7 – Maiores adições de geração fotovoltaica no mundo em 2020
+Fonte: Adaptado de REN21 (2021).
+Deposição de material particulado
+Aqui é necessário discorrer sobre como e que tipo de deposições existem, fatores influenciadores para ocorrer, diferenças entre localidades, origem naturais ou antropogênico etc.
+A simulation was made to compare energy yield prediction with a model using only a constant annual soiling rate and a model with variable soiling rates random rainfalls. The conclusion was this study indicated an average daily efficiency reduction of 0.2% in days without rainfall in dry weather. Annual losses caused by this trend due to soiling ranges from 1.5% to 6.2% depending on the location of the PV plant. The authors concluded at least 20 mm rainfall is needed to clean the surface of PV system, otherwise the system will continue to experience power loss due to the dust and soil disposition. (2001,
+Kimber
+et al.)
+A deposição de material particulado em módulos fotovoltaicos depende de uma variedade de fatores, como:
+Angulação e orientação dos módulos;
+Temperatura ambiente e humidade;
+Características ambientes: vegetação, trânsito, poluição do ar, etc.;
+Propriedades do material particulado: físico-químicas, biológicas, tamanho, formato, massa, eletrostática;
+Velocidade do vento;
+Características da cobertura do módulo: superfície, aplicação de produto isolante.
+(SARAVANAN; DARVEKAR, 2018).
+Na  REF _Ref80804779 \h Figura 1….
+Figura 1 – Exemplo de sujidade em módulos fotovoltaicos sujos e após limpeza
+Fonte: R.R.C., J.J., E.S., D.S., S.M. (2018)
+Limpeza em usinas fotovoltaicas
+Aqui é necessário embasamento em como é feito esse procedimento em diferentes condições e lugares, limpeza por agentes da natureza ou humana (robotizada ou manual), etc.
+(Texto oculto)
+Gráfico  SEQ Gráfico \* ARABIC 8 – Influência da precipitação de chuvas em perdas por sujidade
+Fonte: Valerino et al. (2021)
+Fig. 1. Soiling loss in Gandhinagar, India from January 9th to December 25th 2019 as recorded by the Campbell Scientific and HYPERLINK "https://www.sciencedirect.com/topics/engineering/photovoltaics" \o "Learn more about LAMPS from ScienceDirect's AI-generated Topic Pages"LAMPS soiling stations. Vertical bars represent cleaning days. Green traces represent no rain that day, and blue traces represent daily rain fall with lighter to darker blue indicating light to HYPERLINK "https://www.sciencedirect.com/topics/engineering/heavy-rainfall" \o "Learn more about heavy rainfall from ScienceDirect's AI-generated Topic Pages"heavy rainfall, respectively. Low irradiance days (<60% of the maximum daily sum of energy generation) were not included in analysis and shown as 0% soiling. The soiling station was not recording from October 29th to November 14th. Negative soiling ratios are the result of calibration between the clean and soiled panel falling on rainy and low irradiance days. (For interpretation of the references to color in this figure legend, the reader is referred to the web version of this article.)
+Soiling loss in Gandhinagar displayed a clear seasonal trend. Periods with no rainfall saw a significant soiling rate of 0.21% day−1 to 0.61% day−1 with an average and standard deviation of 0.45 ± 0.10% day−1 equating to a loss of 8.96 ± 1.80% over three weeks. Soiling rates in India remain among the highest in the world. The extended dry seasons experienced by much of the country lead to large PV energy losses. Included in Supplemental information Section 2 is a map of these soiling rates compared to other regions in India as well as notes on the impact of the different climate regions on India to soiling. While the high soiling rate in the dry season presents a challenge for solar energy in India, the record high 2019 monsoon season brought heavy rains to the region. There were six, 3-week periods with significant (>30 mm) rainfall. From May 29th to October 2nd, there was little to no observed soiling due to cleaning by rain. While variability in irradiance and low irradiance conditions during the monsoon contribute to uncertainty in soiling ratios, it can still be stated that the frequent rains kept soiling losses to less than 5% over 3-weeks.  CITATION Mic21 \l 1031 (VALERINO et al., 2021)
+There are wide ranges of estimations for how much rain is necessary to clean PV panels (restore soiling to <1% loss). Due to the many factors that impact cleaning by rain, studies have found cleaning thresholds from 1 mm (Caron and Littmann, 2013) to 10 mm (Kimber et al., 2006). A past study at this location found that 8 mm over 1 h was sufficient (Valerino et al., 2020) while during this study, only 0.5 mm over a day was found to fully restore panels after a dry period (soiling loss drop in the middle of June seen in Fig. 1). This confirms how factors such as cementing of particles by high humidity, particle composition, rain intensity, and panel surface topography and coatings all contribute to order-of-magnitude differences in observed rain cleaning thresholds. It is likely that the first rain after a dry period is more effective at restoring panel efficiency than rain that falls during a period with significant humidity and dew formation (which create cementing effects). To further determine meteorological impacts on PM deposition, source contribution, and cleaning consideration, a more detailed look into what is depositing on panels is necessary. To do this, we first analyze the size distribution of deposited particles over the year.  CITATION Mic21 \l 1031 (VALERINO et al., 2021)
+Existem diversas abordagens ao lidar com limpeza segundo Saravanan e Darvekar (2018), até mesmo a chuva pode ser considerada agente de limpeza em casos de 4 ou 5mm de precipitação. Segundo os citados autores, temos como agentes de limpeza:
+Naturais: chuva, vento, neve;
+Tratamento de superfície com agentes: hidrofóbicos ou hidrofílicos;
+Limpeza manual: água e pano, detergentes, tensoativos, jato de água;
+Limpeza automatizada: varrimento de superfície por microcontrolador, spray d’agua automático, robôs de limpeza ( REF _Ref80197985 \h Figura 2).
+(SARAVANAN; DARVEKAR, 2018)
+Figura 2 – Robô limpando um sistema fotovoltaico
+Fonte: Clean Solar
+Solutions
+(2018)
+Para limpeza manual deve-se ter cuidado para não danifica a superfície do MFV, recomenda-se utilizar somente água e para sujeiras persistentes um pano macio. Não deve ser negligenciado os melhores horários para tal atividade, isto é, quando os módulos ainda não estão muito quentes, no início da manhã ou final da tarde. O choque térmico pode ocasionar rachaduras ou microfissuras no vidro e assim reduzir a capacidade de capitação da incidência solar nas células fotovoltaicas (PINHO, GALDINO, 2014).
+A limpeza de usinas também é impactada se ela está localizada em regiões desérticas de difícil acesso à água. Nessas condições ficaria impraticável ou muito custoso soluções que envolvessem a necessidade de água. Essas regiões ainda estão mais expostas a poeira e areia, o que aumenta de forma significante a deposição de MP. Soluções que envolvam aspiração de ar, ou uso de panos de microfibra ou escovas são recomendados CITATION Moh19 \l 1031 (AL-HOUSANI; BICER; KOÇ, 2019).
+Índices de desempenho
+Ferramentas de avaliação de desempenho em sistemas fotovoltaicos são necessárias para garantir aos stakeholders uma geração de energia sustentada em diversas condições de operação avaliadas nos testes aplicados. Com o índice, torna-se possível no SFV, a identificação de tendencia individual de desempenho, localização de possíveis falhas, projeções de expectativas e garantias de desempenho, comparações de configurações diferentes, e também, comparações de localizações diferentes. Podem envolver modelos complexos, que considera fatores como sombreamento e variação de desempenho nas strings, ou mesmo modelos mais simples, como uma razão da energia medida pelo cálculo da estimada. CITATION INT16 \l 1031 (IEC, 2016).
+Fator de desempenho
+O fator de desempenho é uma razão da energia medida na geração de energia do sistema fotovoltaico, pelo valor teórico máximo que o mesmo sistema pode gerar. Este índice é dado pela fórmula  REF _Ref88578584 \h (2.4.1.1).
+FD%=EusinamedidaEusinaestimada×100
+(2.4.1.1)
+Para o cálculo da energia teórica Eusinaestimada, são necessárias as equações  REF _Ref88599432 \h (2.4.1.2) e  REF  _Ref88599436 \h (2.4.1.3), que envolvem o uso de parâmetros físicos do MFV, disponíveis em datasheet do fabricante, e também, de parâmetros meteorológicos, disponível em portais eletrônicos.
+EusinaestimadakWh=EsolkJm23600×Am2×ηPCU×ηPV
+×1+PTC×Tsuperfície°C-Tstd°C100
+(2.4.1.2)
+Tsuperfície°C=TAr°C+NOCT-20°C800W/m²×Psol(W/m²)
+(2.4.1.3)
+Onde Esol é a energia solar incidente, ηPV é o rendimento do MFV e ηPCU do rendimento do inversor. O valor PTC é o coeficiente de temperatura de máxima potência do MFV, Tsuperfícieé a temperatura de superfície dos módulos, TAr é a temperatura do ar, NOCT
+é a temperatura nominal de operação das células solares (25°C) e Psol
+é
+o fluxo de radiação solar incidente em cada módulo  CITATION Rhy15 \l 1031 (SINGH; BANERJEE, 2015).
+Diferença de desempenho
+O índice de diferença de desempenho foi criado neste estudo, como uma alternativa ao fator de desempenho, a fim de ser possível comparar uma string com ela mesma em diferentes situações, como por exemplo, após uma semana de sua limpeza. Esse índice retorna um valor em porcentagem, que diz em quanto a string observada gerou energia elétrica da mais, ou a menos que a string base.
+IDD(%)=Energiastring observada-Energiastring baseEnergiastring base×100
+(2.4.2.1)
+Ferramentas numéricas e estatísticas
+Neste trabalho foram necessárias ferramentas tanto para manipular e filtrar dados, quanto para analisar os mesmos. Na seção de filtro de dados é explanado a ferramenta que trata valores atípicos ou destoantes. Nas seções subsequentes são detalhadas as teorias de análise estatística utilizadas para obter resultados do estudo.
+Método trapezoidal composto
+Essa ferramenta numérica é útil para cálculos de áreas, usada no cálculo de energia, que é uma integralização da área da potência gerada em um dado intervalo. O método composto, deriva do cálculo da área simples de um trapézio ( REF  _Ref89774040 \* Lower \h figura 3), dado pela fórmula  REF _Ref89775262  \h  \* MERGEFORMAT (2.5.1.1)  CITATION Amo08 \l 1031 (GILAT; SUBRAMANIAM, 2008).
+Figura 3 – Método trapezoidal
+Fonte: Gilat e Subramaniam (2008). CITATION Amo08 \l 1031  (GILAT; SUBRAMANIAM, 2008)
+Áreafsimples≈fa+fb2×(b-a)
+(2.5.1.1)
+Para mais pontos, a integral ao longo do intervalo [a, b] pode ser avaliada repetidas vezes ( REF  _Ref89775021 \* Lower \h figura 4), utilizando a avaliação da integral em cada um dos subintervalos (com o método trapezoidal) e a soma dos resultados, segundo a equação  REF _Ref89775274 \h (2.5.1.2)  CITATION Amo08 \l 1031 (GILAT; SUBRAMANIAM, 2008).
+Figura 4 – Método trapezoidal composto
+Fonte: Gilat e Subramaniam (2008). CITATION Amo08 \l 1031  (GILAT; SUBRAMANIAM, 2008)
+Áreafcomposto=abfxdx≈12i=1Nfxi+fxi+1(xi+1-xi)
+(2.5.1.2)
+Filtro de dados utilizando limites de box plot
+Filtros são utilizados para exclusão de valores destoantes de uma determinada população amostral. Uma possibilidade de filtro é a utilização de limites de box plots.
+Dados podem ser representados em formato de diagrama. No box
+plot
+( REF  _Ref89724430 \* Lower \h figura 5) há a representação gráfica no formato de caixa, onde são ilustrados seus quartis (q1,q2 e q3) e limites, tanto superior quanto inferior. Suas linhas mostram os pontos mais remotos que não excedam limites superior (LS) e inferior (LI), calculados pela diferença entre quartis (dq)  CITATION Bus10 \l 1031 (BUSSAB; MORETTIN, 2010).
+Figura 5 – Representação de um box plot
+Fonte: Bussab e Morettin (2010)
+Uma medida de dispersão alternativa ao desvio padrão, a distância interquartil, é definida pela diferença entre o primeiro e terceiro quartil, como segue na equação  REF _Ref89775336 \h (2.5.2.1).
+dq= q3- q1
+(2.5.2.1)
+Os limites tanto superior quanto inferior são dados pelas equações  REF _Ref89726030 \h (2.5.2.2) e  REF _Ref89726031 \h (2.5.2.3) que envolvem o uso da distância interquartil dos quartis 3 e 1, respectivamente.
+LS=q3+1,5 dq
+(2.5.2.2)
+LI=q1-1,5 dq
+(2.5.2.3)
+As observações que estiverem acima do limite superior ou abaixo do limite inferior estabelecidos serão chamadas pontos exteriores e representadas por asteriscos. Essas são observações destoantes das demais e podem ou não ser o que chamamos de outliers ou valores atípicos  CITATION Bus10 \l 1031 (BUSSAB; MORETTIN, 2010).
+Todas informações fora dos limites calculados, são então, descartadas ao utilizar este filtro.
+Significância estatística (nível-p)
+Significância estatística é uma medida para análise de grupo de amostras de uma população. Com ela é possível dar respaldo a hipóteses criadas sobre o que está sendo estudado. Em boa parte dos casos, é impraticável e custoso financeiramente estudar todo o conjunto da população. Com isso se faz necessário que haja um estudo estatístico amostral ( REF  _Ref92471181 \* Lower \h figura 6), e o resultado do mesmo precisa ter significância perante sua população  CITATION Ste21 \l 1031 (GLEN, 2013).
+Figura 6 – População e amostra
+Fonte: Produção do próprio autor.
+Essa medida estima o grau do quão confiável, ou seja, o quão representativo um resultado é em relação a população. O valor de nível-p é um índice decrescente da confiabilidade do resultado e representa a probabilidade de erro envolvida em aceitar o resultado como válido. É esperado que o resultado de comparação entre grupos obtenha valor de nível-p mais próximo a zero, pois isso significa que há diferença significativa entre os grupos, já que é mais próximo a zero a probabilidade dessa diferença ser gerado ao acaso. Se um experimento aceita um nível-p de 0,05 (ou 1/20), isto significa que, é aceitável a probabilidade de 1 em cada 20 realizações do experimento, da diferença observada entre os grupos ser gerada ao acaso  CITATION Apr20 \l 1031 (APRENDER ESTATÍSTICA FÁCIL, 2020).
+Testes de hipótese
+A fim de verificar igualdade ou desigualdade entre duas ou mais medidas, ou, entre valores esperados e ocorridos, são utilizadas técnicas ou processos denominada testes de hipóteses. Possuem regras objetivas de tomada de decisão com base em dados (resultados) amostrais (experimentais), no qual o pesquisador pode aceitar ou rejeitar um hipótese estatística. É um meio, no qual se obtém a probabilidade que uma diferença maior ou igual da observada seja ocasionada pelo acaso, se não há diferença, ou seja, se a hipótese nula (H0) é verdadeira   CITATION Ass20 \l 1031 (ASSIS; SOUSA; LINHARES, 2020).
+O objetivo central de um teste de hipótese, sobre um parâmetro ou comparação de parâmetros de populações é de supor verdadeira a hipótese em questão, e verificar se a amostra observada condiz com a realidade ou é provável. Isto é, se reflete o que há de mais próximo do real estado das condições do experimento no ambiente que é conduzido a pesquisa  CITATION Bus10 \l 1031 (BUSSAB; MORETTIN, 2010).
+Testes paramétricos e não paramétricos
+Para ser caracterizado como teste não paramétrico, a distribuição da população não requer uma correlação com quaisquer parâmetros. É comum testes de hipóteses partirem de um pressuposto paramétrico, como uma distribuição normal, para representar uma população. A estatística paramétrica parte do princípio que as amostras são coletadas a partir de distribuições caracterizadas por um ou mais parâmetros desconhecidos da qual é procurado fazer a inferência.
+O teste não paramétrico é indicado em situações que a suposição de normalidade não é sustentada, e quando o tamanho da amostra é pequeno.
+CITATION Min22 \l 1031 (MINITAB, 2019)
+Para cada teste paramétrico existe uma alternativa de teste não paramétrico, como mostra o  REF  _Ref109214968 \* Lower \h quadro 1.
+Quadro 1 – Alternativas à testes paramétricos
+Teste paramétrico alternativo
+Teste não paramétrico
+Z com 1 amostra, t com 1 amostra
+Teste de sinal com 1 amostra
+Z com 1 amostra, t com 1 amostra
+Teste de
+Wilcoxon
+para 1 amostra
+Teste t para 2 amostras
+Teste de Mann-Whitney
+ANOVA com um fator
+Teste de Kruskal-Wallis
+ANOVA com um fator
+Teste de mediana de
+Mood
+ANOVA com dois fatores
+Teste de Friedman
+Fonte: MINITAB (2019)
+Teste de Student (teste-t)
+O teste t é utilizado para testar hipóteses sobre diferença entre médias de uma até duas populações, pressupondo uma distribuição normal.
+Sua robustez é uma propriedade que torna o teste t um dos procedimentos mais úteis quando é necessário realizar uma inferência sobre a média de uma população. Em amostras grandes o teste t é valido mesmo quando ocorrem pressupostos de violação da normalidade.
+CITATION Min18 \l 1031 (MINITAB, 2018)
+Quadro 2 - Tipos de testes t
+Teste
+Propósito
+Exemplo
+Teste t para 1 amostra
+Testa se a média de uma única população é igual a um valor alvo
+A geração média de energia em uma string é maior que 5kWh/dia em agosto?
+Teste t para 2 amostras
+Testa se a diferença entre as médias de duas populações independentes é igual a um valor alvo
+A geração de energia média de uma string FV é significativamente diferente da produção média de todas outras strings do sistema?
+Teste t pareado
+Testa se a média das diferenças entre observações independentes ou pareadas é igual a um valor alvo
+Se o desempenho de módulos FV é observado antes e depois de uma limpeza, o ganho de desempenho é suficientemente significante para concluir que a limpeza funciona?
+Teste t na saída da regressão
+Testa se os valores dos coeficientes na equação de regressão diferem significativamente de zero
+A limpeza em módulos FV constituem preditores significantes no desempenho dos módulos FV?
+Fonte: MINITAB (2018)
+Teste Z
+Um teste Z é um teste de hipótese baseado na estatística Z, que segue a distribuição normal padrão sob a hipótese nula.
+O teste Z mais simples é o teste Z para 1 amostra, que testa a média de uma população normalmente distribuída com variância conhecida. Por exemplo, o gerente de um fabricante de doces deseja saber se o peso médio de um lote de caixa de doces é igual para o valor alvo de 10 onças. A partir de dados históricos, eles sabem que a máquina de enchimento tem um desvio padrão de 0,m5 onças, de forma que eles usam este valor como o desvio padrão da população em um teste Z para 1 amostra.
+Você também pode usar testes Z para determinar se variáveis preditoras em análise por
+probito
+e regressão logística têm um efeito significativo sobre a resposta. A hipótese nula afirma que o preditos não é significante.
+Você também tem a opção de usar um teste Z para fazer uma aproximação para os testes de taxa de Poisson e testes de proporções. Estas aproximações normais são válidas quando o tamanho amostral e o número de eventos são adequadamente grandes.
+Análise
+de
+variância
+(ANOVA)
+Um possível método a ser utilizado é o ANOVA para medidas repetidas (Elliot
+and
+Woodward 2006). Esse método, de maneira geral, é uma extensão do teste t-
+student
+emparelhado.
+Análise de variância é a técnica estatística que permite avaliar afirmações sobre as médias de populações [1]. A análise visa, fundamentalmente, verificar se existe uma diferença significativa entre as médias e se os fatores exercem influência em alguma variável dependente.
+Objetivo da Análise de Variância
+A análise de variância compara médias de diferentes populações para verificar se essas populações possuem médias iguais ou não. Assim, essa técnica permite que vários grupos sejam comparados a um só tempo.
+Em outras palavras, a análise de variância é utilizada quando se quer decidir se as diferenças amostrais observadas são reais (causadas por diferenças significativas nas populações observadas) ou casuais (decorrentes da mera variabilidade amostral). Portanto, essa análise parte do pressuposto que o acaso só produz pequenos desvios, sendo as grandes diferenças geradas por causas reais[1].
+METODOLOGIA E ETAPAS DE DESENVOLVIMENTO
+Nesta subseçãoNesta seção está descrito como foi realizado o estudo do efeito da sujidade, através da limpeza em um sistema fotovoltaico. Para isto, foi especificado instrumentos, equipamentos e métodos utilizados.
+A hipótese científica levantada é que a limpeza executada impactaria na capacidade de geração das strings de modulo fotovoltaico. Estas strings, por estarem a muito tempo sem manutenção, já estariam sofrendo perdas na geração de energia elétrica, ocasionadas pelo aumento da densidade superficial de sujidade  CITATION Moh16 \l 1031 (MAGHAMI et al., 2016).
+Desse modo, a partir da análise das informações obtidas nos experimentos será possível determinar se a metodologia de limpeza, ou se o espaçamento de tempo entre limpezas é justificável, e apresenta resultados esperados. Com base nos resultados deste estudo, o analista das usinas fotovoltaicas poderá determinar melhor custos de manutenção e operação ao considerar a limpeza dos módulos.
+Definição do Sistema Fotovoltaico
+A edificação abordada no estudo, o prédio CTXII do Centro Tecnológico da Ufes, é a planta de número 101 no sistema SEMS de monitoramento de dados ( REF _Ref64622074 \h \* lower figura 7). Possui um sistema fotovoltaico 54 módulos fotovoltaicos ligados a 3 inversores, que totaliza 128,52 kW em corrente continua.
+Figura 7 – Vista aérea do sistema fotovoltaico utilizado no estudo
+528955000Fonte: Concedido pela Ufes (2021).
+Os inversores são de 36 kV, modelo GW35KLV-MT, da marca
+Goodwe
+( REF  _Ref85214778 \h \n ANEXO A), com 4 dispositivos do tipo rastreador de máximo ponto de potência (MPPT), onde é possível conectar 3 strings em cada MPPT. Pelo as built, em cada inversor estaria conectado um conjunto constituído por 8 strings de 17 módulos, desta forma é utilizado somente 2 strings por MPPT, ficando 1 slot vago. Em campo, foi possível perceber o deslocamento de um módulo em uma das strings do estudo (arranjo inferior do lado direito da  REF  _Ref64622074 \* Lower \h figura 7), fazendo com que uma das strings tenha 1 módulo FV a menos (101.1.8). Essa diferença está visível ao comparar figuras  REF  _Ref64622074 \d " " \f \# 0 \h 7 e  REF  _Ref87703249  \d " " \f \# 0 \h 8 e ao adquirir dados na subseção  REF _Ref87704384 \r \h 3.4. Todos módulos são de modelo JAM60S03-315/PR, monocristalino, da fabricante JA Solar com potência de saída de 315Wp cada. Além desse módulo a universidade também possui outros edifícios que usam o modelo de 310Wp, de especificações encontrada no  REF _Ref64558489 \h \* lower quadro 3, retiradas de seu datasheet ( REF _Ref85222385 \n \h ANEXO B).
+Quadro 3 – Dados dos módulos fotovoltaicos
+MODELO
+JAM60S03-310/PR
+JAM60S03-315/PR
+Características elétricas
+Potência máxima
+310 W
+315 W
+Rendimento
+18,6%
+18,9%
+Tensão nominal
+32,78 V
+33,07 V
+Tensão em aberto
+39,61 V
+39,93 V
+Corrente nominal
+9,46 A
+9,53 A
+Corrente de curto-circuito
+10,03 A
+10,10 A
+Características físicas
+Dimensões
+1678 mm x 991 mm x 35 mm
+1678 mm x 991 mm x 35 mm
+Peso
+18,5 kg
+18,5 kg
+Fonte: JA Solar (2018). CITATION JAS \l 1031  (JS, 2018)
+Para melhor efeito de comparação, todas as strings deste estudo estão no mesmo inversor, evitando-se que haja diferença por diferença de rendimento de equipamentos diferentes. O inversor utilizado é numerado como 101.1 no sistema de monitoramento de dados. Foi levado em consideração também que fosse usado o menor número possível de MPPTs. Neste inversor foram escolhidas as strings de números 101.1.4, 101.1.5, 101.1.6, 101.1.7 e 101.1.8 ( REF  _Ref85378760 \* Lower \h  \* MERGEFORMAT
+), que utilizam o MPPT2, MPPT3 e MPPT4 ( REF _Ref85220209 \h \* lower quadro 4).
+Figura 8 – Corte da vista superior do edifício com as strings utilizadas no estudo realçadas
+Fonte: Produção do próprio autor.
+Quadro 4 – Organização de strings e MPPTs no inversor
+INVERSOR 101.1
+MPPT1
+MPPT2
+MPPT3
+MPPT4
+Istr1
+—
+Istr4
+—
+Istr7
+—
+Istr10
+—
+Istr2
+101.1.2
+Istr5
+101.1.4
+Istr8
+101.1.6
+Istr11
+101.1.8
+Istr3
+101.1.1
+Istr6
+101.1.3
+Istr9
+101.1.5
+Istr12
+101.1.7
+Fonte: Produção do próprio autor.
+A notação ‘Istr’ é usada pelo Portal SEMS para denotar a corrente da string. Foi necessário realizar em trabalho de campo, a identificação das strings, já que, não havia especificado no software ou projeto qual string cada corrente representava no SEMS. O método utilizado foi a cobertura parcial com lonas plásticas de uma string por vez, em um horário em que estava havendo geração de energia, que ocorreu no período matutino. Desta forma foi possível observar a queda de corrente no software e registrar qual string cada corrente representa.
+Trabalho em altura e risco de choque elétrico
+Foi feito um estudo de normas técnicas necessárias para que seja possível trabalhar em segurança nas condições propostas de altura, instalações elétricas e em contato com o SFV. É de procedimento padrão em normas técnicas de segurança a sugestão que sejam feitas antes do início do trabalho: a identificação do perigo, a análise de risco e estabelecimento do procedimento de segurança.
+Identificação do perigo
+Possíveis riscos identificados nesse estudo incluem:
+Risco de choque: Os MFVs nesta estrutura têm ligação em série formando strings que atingem níveis de tensão de 600 V. O isolamento e o aterramento foram acusados como existentes, porém o inversor do SFV não possui a função embutida de verificação do aterramento. Será utilizado água para limpeza;
+Risco de queda: Todos MFVs são acessíveis sem auxilio de escadas ou equipamentos para elevação do operador. O edifício em estudo possui dois andares, na sua cobertura onde estão instalados os módulos fotovoltaicos, há 1,50 m de platibanda (parapeito), como pode ser observado na  REF  _Ref88577670 \* Lower \h figura 9. Trabalho envolve uso de água, e há possibilidade com que o piso fique escorregadio.
+Figura 9 – Parapeito do edifício CTXII
+Fonte: Produção do próprio autor.
+Análise de risco
+Risco de choque: Instalações elétricas possuem riscos de choque, e deve-se considerar uso de equipamentos de segurança de choque elétrico, e acompanhamento de outra pessoa para realização do trabalho;
+Risco de queda: Edifício não apresenta risco de queda para o trabalho exigido. Trabalho apresenta risco de escorregamento, deve-se considerar uso de equipamento de proteção para cabeça e botas antiderrapantes.
+Estabelecimento do procedimento de segurança
+Para a execução da atividade com segurança, foi contemplado normas de trabalho em altura pela ABNT NBR 16489:2017 e equipamento de proteção individual de luvas isolantes pela NBR 10622:2014. Esta última recomenda luvas de 1000 VA para baixa tensão ( REF  _Ref88557885 \* Lower \h figura 10), as quais foram utilizadas durante atividade em campo. Também foi feito uso de botas para prevenção de queda por escorregamento.
+Figura 10 – Luvas isolantes classe 00 de 1 kVA
+Fonte: SuperEPI
+(2021). CITATION Sup21 \l 1031 (SUPEREPI, 2021)
+Execução da limpeza de strings do SFV
+A metodologia de limpeza realizada neste estudo foi uma condição já pré-estabelecida pela Ufes. A mesma está prevista no termo de referência da contratação para manutenção das usinas fotovoltaicas da universidade, segundo UFES (2021), peça de número sequencial 78 do Processo digital nº 23068.018097/2020-80, item 21 do Anexo III do Termo de Referência.
+Serviço de limpeza de módulos fotovoltaicos realizado por profissional habilitado. A limpeza deve ser realizada com água limpa, de cima para baixo. Devem ser empregadas escovas de cerdas macias ou panos. Não deve ser utilizado, em hipótese alguma, qualquer material plástico ou metálico, bem como escovas de cerdas firmes.
+(…)
+É vedado o uso de detergente, de pó abrasivo, de soluções corrosivas de limpeza, ácidas ou alcalinas, bem como de desengraxantes ou desengordurantes. É vedado o uso de utensílios elétricos rotativos CITATION Edu21 \l 1031 (UFES, 2021).
+A Ufes não tinha à disposição, até a data deste estudo, equipamentos especializados para limpeza das usinas fotovoltaicas ou equipamentos de segurança para o operador. A limpeza foi realizada de forma manual, com esfregão e água, dispensando quaisquer agentes de limpeza extras. Utilizou-se um balde e um esfregão do tipo mop com a vara modulada ( REF  _Ref87704683 \* Lower \h figura 11), dando opções de comprimento de 1m, 1,4m e 1,80m. O prolongamento da vara fez-se necessário para alcançar a faixa de módulos FV superiores.  Para a abastecimento do balde com água, foi utilizado uma mangueira comum, já disponível no local, conectada ao sistema hidráulico do edifício, localizada no próprio terraço onde está localizada o SFV.
+Figura 11 – Ilustração do tipo de Mop com balde utilizado
+Fonte: Amazon (2021).CITATION Mop21 \l 1031  (AMAZON, 2021)
+Como parâmetro, foi feita uma marcação de 6L no balde ( REF  _Ref88842559 \* Lower \h
+figura 12), para que toda vez a água do balde fosse trocada na mesma quantidade sempre. O método de limpeza foi definido como uso de um balde de água limpa para uma quantidade definida de módulos fotovoltaicos.
+Figura 12 – Marcação de 6L no balde
+Fonte: Produção do próprio autor.
+Inicialmente, foi realizado uma inspeção visual no primeiro balde ( REF  _Ref88843143 \* Lower \h figura 13), para definir quantos MFV seriam limpos, até ser necessária a troca da água. Foi decidido dessa forma, a troca da água a cada limpeza de 4 módulos.
+Figura 13 – Aspecto da água após limpeza em 4 módulos fotovoltaico
+Fonte: Produção do próprio autor.
+Após a primeira limpeza ocorrida na semana 1 ( REF  _Ref88844012 \* Lower \h figura 14), é perceptível alteração no aspecto visual da fileira inferior de módulos fotovoltaicos.
+Figura 14 – Diferença visual após primeira limpeza da fileira inferior de módulos fotovoltaicos
+Fonte: Produção do próprio autor.
+No  REF _Ref85220031 \h \* lower quadro 5 tem-se a disposição cronológica da atividade de limpeza, que foi executada ao longo de um mês. A string 101.1.4 não foi limpa, e serviu como base de comparação. Não houve limpeza na semana 0, a mesma foi usada de parâmetro para outras semanas.
+Quadro 5 – Metodologia de limpeza
+Ocorrência da limpeza
+Semana
+0
+1 ª
+2 ª
+3 ª
+4 ª
+Período
+7 a 13 de abril
+14 a 20 de abril
+21 a 27 de abril
+28 de abril
+a 4 de maio
+4 a 11
+de maio
+Data da limpeza
+Não ocorre
+14/04/2021
+22/04/2021
+28/04/2021
+05/05/2021
+Strings
+101.1.4
+101.1.5
+101.1.8
+101.1.7
+101.1.6
+Fonte: Produção do próprio autor.
+Esta atividade foi executada de forma que se economize esforço, e tenha-se um maior número de amostras de diferentes períodos de semanas que ficará sem limpeza ( REF  _Ref64594212 \* Lower \h
+tabela 1). A limpeza é realizada no início da semana, logo, ao seu término, ela completa 1 semana sem limpeza, se na próxima semana a mesma string não for limpa, completa 2 semanas sem limpeza ao seu término, e assim sucessivamente. Únicos casos de strings não limpas ocorreram com a string 101.1.8 na semana 1, e com a string 101.1.4, que não está limpa em qualquer ocasião.
+Tabela SEQ Tabela \* ARABIC1 – Amostragem de semanas sem limpeza – semana a semana (desconsiderando 7 a 13 de abril)
+Quantidade de dias
+sem limpeza
+Quantidade de
+vezes que ocorre
+7
+8
+14
+4
+21
+2
+28
+1
+Nunca limpo
+5
+Fonte: Produção do próprio autor.
+Na  REF _Ref64595170 \h \* lower tabela 2 pode-se observar a quantidade de strings em cada estado de sujidade ao final de cada semana de observação. Por exemplo, do total de 5 strings, na 1ª semana, 3 strings serão limpas, logo ficarão 1 semana sem limpeza ao final da mesma, e as outras 2 strings (101.1.4 e 101.1.8) ainda não foram limpas nenhuma vez. Já na 2a semana de observação, 2 strings serão limpas, completando 7 dias sem limpeza, enquanto outras 2 foram limpas na semana anterior, completando 14 dias, além da 101.1.4 que nunca será limpa.
+Tabela SEQ Tabela \* ARABIC2 – Quantidade de strings em cada estado de sujidade a cada semana
+Semana de Observação
+Quantidade de dias sem limpeza
+7
+14
+21
+28
+Nunca limpo
+1ª
+3
+0
+0
+0
+2
+2ª
+2
+2
+0
+0
+1
+3ª
+2
+1
+1
+0
+1
+4ª
+1
+1
+1
+1
+1
+Fonte: Produção do próprio autor.
+Durante a execução do trabalho de limpeza foi realizado a cronometragem do tempo de execução do trabalho de limpeza para cada módulo, o qual possui individualmente área de 1,66 m² ( REF _Ref85222385 \n \h ANEXO B). Como as strings foram limpas um total de 8 vezes, e cada uma possui 17 módulos, isso totaliza 225,8 m² limpos, e 136 pontos apresentado em formato de box
+plot
+no  REF  _Ref88907214 \* Lower \h gráfico 9. Na  REF  _Ref89255289 \* Lower \h tabela 3 é possível observar suas médias e desvios padrão.
+Tabela 3 – Média e desvio padrão do tempo em minutos de limpezas por módulo
+Data
+Semana
+Média de tempo
+Desvio padrão
+Quantidade de MFVs limpos
+14/04/21
+1
+01:26
+00:14
+51
+22/04/21
+2
+01:21
+00:19
+34
+28/04/21
+3
+01:37
+00:19
+34
+05/05/21
+4
+01:51
+00:25
+17
+Todos
+01:34
+00:19
+136
+Fonte: Produção do próprio autor.
+Tendo em vista que o trabalho de limpeza foi executado no período matutino, com uma janela fixa de tempo, é notado pelos dados que a dificuldade é inversamente proporcional ao tempo de execução. Por exemplo, na semana 1, envolveu-se a necessidade de extensão da vara do mop, maior dificuldade de limpeza pela distância do operador aos MFVs, maior número de trocas de água do balde, e até mais módulos a serem limpos, o que resultou em consumo de tempo maior, e totalizou menor tempo para limpeza individuais de módulos na janela de tempo definida. Por outro lado, na semana 4, onde não houve necessidade de modificação da amplitude da vara, e havia menos MFVs a serem limpos, e logo, menos trocas de água do balde, acabou resultando em mais tempo livre para a limpeza individual, e consequentemente, tempo médio, e até o desvio padrão foram maiores.
+Gráfico 9 – Box plot de durações de limpezas por módulo fotovoltaico pela semana e data da operação
+Fonte: Produção do próprio autor.
+Aquisição de dados de geração de energia do SFV e da estação meteorológica
+Para analisar se haviam efeitos causados pela sujidade usando o método de limpeza, foi necessário coletar dados de geração de energia pelas strings. Foi utilizado o sistema de gerenciamento do próprio fabricante do inversor, de monitoramento web denominado SEMS, acessado por meio de um portal eletrônico ( REF  _Ref88485797 \* Lower \h figura 15), com usuário fornecido pela Superintendência de Infraestrutura da Ufes.
+Figura 15 – Portal eletrônico de geração de energia SEMS
+Fonte: Produção do próprio autor.
+Esse sistema de gerenciamento de energia usa um datalogger modelo
+EzLogger
+Pro ( REF  _Ref87349909 \* Lower \h figura 16) para a coleta de dados e comunicação com o portal eletrônico.
+Figura 16 – Datalogger do inversor
+Fonte: Produção do próprio autor.
+As amostras de geração de energia pelo SFV dada pelo sistema de monitoramento web SEMS são coletadas de 2 em 2 minutos. Como esse intervalo de tempo produziria muitos dados, e dificultaria a manipulação, principalmente pelo fato de a estação meteorológica trabalhar com dados horários, foi escolhido trabalhar com amostras horárias, e também diárias. Para isso foi feita a integralização dos dados utilizando a fórmula do método trapezoidal composto  REF _Ref89775274 \h (2.5.1.2) tanto para intervalos horários e diários.
+Também foram coletados dados de irradiação solar de uma estação meteorológica que utiliza um
+piranômetro
+( REF  _Ref87365770 \* Lower \h figura 17).
+Figura 17 – Exemplo de estação com piranômetro
+Fonte: Mundo Clima (2021). CITATION Mun21 \l 1031 (MC, 2021)
+Esta estação é automática, pertencente ao Instituto Nacional de Meteorologia (INMET), localizada na Ufes ( REF  _Ref87364474 \* Lower \h figura 18). O sítio eletrônico dos dados é aberto ao público via website governamentalCITATION Ins21 \t  \l 1031  (I, 2021). Dados da irradiância foram coletados com o intuito de normalizar os dados de geração das strings, uma vez que a influência no rendimento é diferente em uma diferença proporcional e diferença absoluta. Os dados coletados pela estação meteorológica automática são horários.
+Figura 18 – Localização da estação meteorológica na Ufes
+Fonte: INMET (2021).
+Método de estudo dos dados adquiridos
+Para obter um extrair informação dos dados obtidos, foi necessário o uso de ferramentas de comparação, esses sendo os índices de desempenho. Posteriormente, faz-se uma análise desta informação, a fim de entender essa informação, para então gerar resultados.
+Índices de desempenho
+Averiguar sistemas fotovoltaicos em diferentes condições (localização, clima, temperatura, irradiação) exige o uso de índices de desempenho. A mesma serve da necessidade de ter uma base de parâmetro confiável, para saber o quanto o SFV está gerando em relação ao seu potencial máximo. Mesmo em situações de mesma condições locais climáticas e meteorológicas, como é o caso desse estudo, faz-se necessário também um padrão, para saber o quanto cada string é diferente dela mesma, ou em relação a outras, quando sujeitas a condições de limpezas diferentes.
+Fator de desempenho
+A primeira tentativa de utilização de um índice de desempenho neste trabalho foi com a tratativa do fator de desempenho (FD). O mesmo é calculado pela razão da energia elétrica gerada pela energia estimada, segundo equação  REF _Ref88578584 \h (2.4.1.1). Todas as informações para o cálculo das equações necessárias  REF  _Ref88599432 \h  \* MERGEFORMAT (2.4.1.2) e  REF  _Ref88599436 \h  \* MERGEFORMAT (2.4.1.3), foram coletadas do datasheet do módulo fotovoltaico ( REF  _Ref85214778 \h \n ANEXO A) e de dados da estação meteorológica INMET (2021). O rendimento do inversor do SFV foi desconsiderado, uma vez que todas strings do estudo estão conectadas no mesmo. Neste cálculo de FD, foi desconsiderado dados de geração após as 18h e até as 5h da manhã do dia seguinte, visto que eles produziram valores espúrios.
+Após obter dados horários de FD, ficou perceptível que havia problemas com resultados apresentados, principalmente às 14h ( REF  _Ref89255403 \* Lower \h tabela 4), onde os fatores de desempenho em todas semanas (0, 1, 2, 3 e 4) apresentavam valores acima de 1 em quase todos dias neste horário. Algo que não deveria ocorrer, uma vez que 1 é o valor máximo de desempenho teórico possível de se alcançar.
+Tabela 4 – Fator de desempenho das 5 strings na semana 0 às 14:00
+data
+hora
+FD1.4
+FD1.5
+FD1.6
+FD1.7
+FD1.8
+07/04/2021
+14:00
+1.07
+1.07
+1.05
+1.30
+0.92
+08/04/2021
+14:00
+1.48
+1.50
+1.42
+1.56
+1.33
+09/04/2021
+14:00
+1.43
+1.46
+1.40
+1.36
+1.25
+10/04/2021
+14:00
+1.55
+1.58
+1.53
+1.44
+1.32
+11/04/2021
+14:00
+1.58
+1.62
+1.56
+1.47
+1.35
+12/04/2021
+14:00
+3.74
+3.85
+3.71
+3.48
+3.24
+13/04/2021
+14:00
+0.97
+0.98
+0.92
+0.99
+0.87
+Fonte: Produção do próprio autor.
+Após analisar a média dos dados de irradiância ( REF  _Ref88577460 \* Lower \h gráfico 10) do período de 7 de abril a 4 de maio em anos anteriores de 2016 até 2020, e compará-los com o intervalo do estudo, em 2021, foi concluído que os dados atuais apresentados na estação meteorológica estavam inconsistentes, visto que havia uma redução não justificável de até 60% na irradiação captada no horário entre 13 e 14h.
+Gráfico 10 – Dados de irradiância captado pelo piranômetro da estação meteorológica
+Fonte: Produção do próprio autor.
+A partir disso, foi averiguado com o responsável pela estação, que a mesma trabalha isolada da rede de distribuição de energia, ligada a um módulo fotovoltaico e bateria. A bateria encontra-se faltosa, e impede medições em situações de pouca irradiância pela estação, como em situação de chuva, já que a mesma é desligada nessas ocasiões por falta de energia.
+Diferença de desempenho
+Visto a não adequação para o uso dos dados da estação meteorológica, para o uso do fator de desempenho, foi necessário criar uma outra variável que traduzisse ganhos ou perdas nas strings estudadas. Desta forma, chegou-se à conclusão que deveria ser criado um parâmetro que não sofresse da influência do que está sendo testado neste estudo, isto é, a limpeza no MFVs.
+Para o cálculo do índice de diferença de desempenho foi usado a fórmula  REF _Ref89425889 \h (2.4.2.1), onde foi tomado como base a string 101.1.4. Essa string se encontra no mesmo inversor de frequência de todas strings aqui estudadas, e no mesmo arranjo fotovoltaico da 101.1.6 e 101.1.5 ( REF  _Ref87703249 \* Lower \h figura 8). As strings observadas são as outras deste estudo, que foram limpas de acordo com o planejamento do  REF  _Ref85220031 \* Lower \h quadro 5.
+Ao calcular a diferença de desempenho horária (DDH), fez-se necessário uso de filtro para remover valores atípicos, que ocorriam principalmente ao início e final de cada dia, onde a incidência solar é menor. Uma diferença absoluta de valores mais próximos a zero pode proporcionar uma diferença proporcional discrepante. Para resolver essa questão, adotou-se um filtro para exclusão de pontos exteriores feito em diagramas de box plot, segundo Bussab e Morettin (2010), os limites superiores e inferiores foram feitos pelas equações  REF _Ref89726030 \h (2.5.2.2) e  REF _Ref89726031 \h (2.5.2.3), respectivamente.
+Para ilustrar a DDH, tem-se nos gráficos  REF  _Ref89812001 \# \0;0 \* Lower \d "  " 11, a semana 0, anterior ao início das limpezas, e no gráfico  REF  _Ref89812003 \# \0;0 \* Lower \h 12, última semana de limpeza, ao término do período do estudo. Os gráficos iniciam e terminam o dia às 00:00, e no período que se estende de 18h até às 5h da manhã do dia seguinte a linha é contínua em zero, pois não há geração de energia elétrica. Em ambos, mesmo após aplicação do filtro, ainda é perceptível que há distorções nos dados horários, principalmente na DDH da string 101.1.5. Essa é a única que tem sombreamento no período matutino, e seu baixo desempenho é explicado neste turno. Porém, ao final do dia, no período de geração entre 16 e 17h é notado um pico de DDH, muito por conta da discrepância das diferenças absolutas e proporcionais, que o filtro não excluiu. Outro caso muito aparente, na string 101.1.8, é notado que isso ocorre no período matutino, logo ao nascer do sol, quando praticamente não há geração de energia ainda. Essa string ainda sofre perda no DDH também por estar com 1 MFV faltante, segundo o as built.
+Gráfico 11 – Índice de diferença de desempenho horário na semana 0
+Fonte: Produção do próprio autor.
+Gráfico 12 – Índice de diferença de desempenho horário na semana 4
+Fonte: Produção do próprio autor.
+Visto as discrepâncias com o DDH, foi feito a análise de dados também da diferença de desempenho diária (DDD), a fim que não fosse necessário o uso de filtros, e desta forma, a perda de dados, levando em consideração que não é razoável a exclusão da geração produzida em 1 dia.
+Características de posição, ângulo, direção etc. 6 e 4 são as mais parecidas (mesmo lado do arranjo, não tem sombra)
+Gráfico 13 – Índice de diferença de desempenho diário nas 5 semanas do estudo
+Fonte: Produção do próprio autor.
+Análise estatística
+Foi utilizado testes de hipótese para dar validade ao estudo conduzido, uma vez que é preciso saber se há correlação entre as limpezas efetuadas, com alterações em valores no índice de desempenho.
+Teste de variância (ANOVA)
+Teste de
+student
+(
+teste-t
+)
+Relações de comparações (?)
+Strings do teste
+(strings A e B)
+Semana
+Semanas em
+relação à
+última limpeza
+(strings A e B)
+Hipótese nula
+Rejeita hipótese?
+1.4 e 1.5
+1
+∞1
+1
+d=dsemana 0
+2
+∞1
+2
+d=dsemana 1
+3
+∞1
+3
+d=dsemana 2
+4
+∞1
+4
+d=dsemana 3
+1.4 e 1.6
+1
+∞1
+1
+d=dsemana 0
+Sim
+2
+∞1
+1
+d=dsemana 1
+3
+∞1
+1
+d=dsemana 2
+4
+∞1
+1
+d=dsemana 3
+1.4 e 1.7
+d=dsemana 0
+d=dsemana 1
+d=dsemana 2
+d=dsemana 3
+1.4 e 1.8
+d=dsemana 0
+d=dsemana 1
+d=dsemana 2
+d=dsemana 3
+Fonte: Produção do próprio autor.
+Nota1: Por ∞ denota-se que nunca foram limpas desde a instalação.
+RESULTADOS
+CONCLUSÃO
+REFERÊNCIAS BIBLIOGRÁFICAS
+BIBLIOGRAPHY  \l 1031 \n AL-HOUSANI, Mohammed; BICER, Yusuf; KOÇ, Muammer. Assessment of Various Dry Photovoltaic Cleaning Techniques and Frequencies on the Power Output of CdTe-Type Modules in Dusty Environments. Sustainability, v. 11. 2019. Disponível em: https://www.mdpi.com/2071-1050/11/10/2850/htm. Acesso em: 19 ago. 2021.
+AMAZON. Mop Giratório, balde com 12 litros, MOP8209-VA, Flash Limp, 2021. Disponível em: https://www.amazon.com.br/dp/B07NQ4985V/. Acesso em: 11 nov. 2021.
+AMIRI, B. et al. A novel approach for global solar irradiation forecasting on tilted plane using Hybrid Evolutionary Neural Networks. Journal of Cleaner Production, v. 287. 2021. Disponível em: https://doi.org/10.1016/j.sciaf.2020.e00459. Acesso em: 24 ago. 2021.
+APRENDER ESTATÍSTICA FÁCIL. O QUE SIGNIFICA O VALOR DE P? Aprender Estatística Fácil, 2020. Disponível em: https://estatisticafacil.org/2020/10/06/valor_de_p/. Acesso em: 07 fev. 2022.
+ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. ABNT NBR 10899: Energia solar fotovoltaica — Terminologia. Rio de Janeiro: ABNT, 2020.
+BUSSAB, Wilton D. O.; MORETTIN, Pedro A. Estatística Básica. 6. ed. São Paulo: [s.n.], 2010. Cap. 3, p. 47-50.
+COMERIO, Alessandra. Avaliação do impacto de sujidade de módulos fotovoltaicos na geração de nergia elétrica. 2019. Dissertação (Mestrado em Engenharia Elétrica) – Programa de Pós-Graduação em Engenharia Elétrica, Universidade Federal do Espírito Santo, Vitória, 2019.
+COSTA, Suellen C. S.; KAZMERSKI, Lawrence L.; DINIZ, Antônia S. A. C. Impact of soiling on Si and CdTe PV modules: Case study in different Brazil climate zones. Energy Conversion and Management: X, v. 10. 2021. Disponível em: https://www.sciencedirect.com/science/article/pii/S259017452100009X. Acesso em: 07 out. 2021.
+DEPARTMENT OF ENERGY. DOE Announces Goal to Cut Solar Costs by More than Half by 2030. U.S. Department of Energy, 2021. Disponível em: https://www.energy.gov/articles/doe-announces-goal-cut-solar-costs-more-half-2030. Acesso em: 08 set. 2021.
+EUROPEAN COMMISSION. 2030 climate & energy framework. 2014. Disponível em: https://ec.europa.eu/clima/policies/strategies/2030_en#tab-0-0. Acesso em: 26 ago. 2021.
+FONTES, Giulia. Retratos da Economia. Gazeta do Povo, 2021. Disponível em: https://www.gazetadopovo.com.br/economia/setor-eletrico-impactos-coronavirus-retratos-economia/. Acesso em: 30 ago. 2021.
+GILAT, Amos; SUBRAMANIAM, Vish. Métodos numéricos para engenheiros e cientistas. Porto Alegre: Bookman, 2008.
+GLEN, Stephanie. "What is Statistical Significance?" StatisticsHowTo.com: Elementary Statistics for the rest of us!, 2013. Disponível em: https://www.statisticshowto.com/what-is-statistical-significance/. Acesso em: 14 out. 2021.
+INMET. Mapa das Estações. Instituto Nacional de Meteorologia, 2021. Disponível em: https://mapas.inmet.gov.br/. Acesso em: 22 out. 2021.
+INTERNATIONAL ELECTROTECHNICAL COMMISSION. IEC TS 61724-3 Photovoltaic system performance – Part 3: Energy evaluation method. 2016.
+INTERNATIONAL ENERGY AGENCY. Net Zero by 2050. A roadmap for the Global Energy Sector. [S.l.]: [s.n.], 2021. Disponível em: https://iea.blob.core.windows.net/assets/beceb956-0dcf-4d73-89fe-1310e3046d68/NetZeroby2050-ARoadmapfortheGlobalEnergySector_CORR.pdf. Acesso em: 26 ago. 2021.
+IRENA. Renewable power generation costs in 2020. Abu Dhabi: International Renewable Energy Agency, 2021.
+JA SOLAR. JAM60S03 300-320/PR. 2018. Manual de especificações. Disponível em: https://cdn.enfsolar.com/z/pp/ewq60ef7ba132465/5b17a3a58474b.pdf?_ga=2.204371923.297645591.1629400042-501610392.1629400041. Acesso em: 19 ago. 2021.
+MAGHAMI, Mohammad R. et al. Power loss due to soiling on solar panel: A review. Renewable and Sustainable Energy Reviews, v. 59, p. 1307-1316. 2016. Disponível em: https://doi.org/10.1016/j.rser.2016.01.044. Acesso em: 03 out. 2021.
+MÉRI SANTOS, Jane; REIS JÚNIOR, Neyval C. Caracterização e quantificação de partículas sedimentadas na região da Grande Vitória. 2011.
+MUNDO CLIMA. ESTAÇÕES SOLARIMÉTRICAS. Mundo Clima, 2021. Disponível em: https://www.mundoclima.com.br/produtos/pvmet-150/. Acesso em: 09 nov. 2021.
+PINHO, João T.; GALDINO, Marco A. Manual de Engenharia para Sistemas Fotovoltaicos. Rio de Janeiro: CEPEL-CRESESB, 2014. Disponível em: http://www.cresesb.cepel.br/index.php?section=publicacoes&task=livro&cid=481. Acesso em: 19 ago. 2021.
+REIS, Marcelo M. CONCEITOS ELEMENTARES DE ESTATÍSTICA. UFSC, [200-?]. Disponível em: http://www.inf.ufsc.br/~marcelo.menezes.reis/intro.html#O+que+%E9+signific%E2ncia+estat%EDstica+%28n%EDvel-p%29. Acesso em: 28 jan. 2022.
+REN21. Renewables 2021 Global Status Report. 2021. Disponível em: https://www.ren21.net/wp-content/uploads/2019/05/GSR2021_Full_Report.pdf. Acesso em: 23 ago. 2021.
+REN21 BRASIL. Tendências no Brasil - Fatos sobre o Relatório de Status Global das Energias Renováveis 2021. 2021. Disponível em: https://www.ren21.net/wp-content/uploads/2019/05/REN21_GSR2021_Factsheet_Brazil_PT.pdf. Acesso em: 30 ago. 2021.
+SARAVANAN, S. V.; DARVEKAR, Sanjay. Solar Photovoltaic Panels Cleaning Methods A Review. International Journal of Pure and Applied Mathematics, Pune, India, v. 118, p. 1-17. 2018. Disponível em: https://www.researchgate.net/publication/338990581. Acesso em: 20 ago. 2021.
+SAYYAH, Arash; HORENSTEIN, Mark N.; MAZUMDER, Malay K. Energy yield loss caused by dust deposition on photovoltaic panels. Solar Energy, Boston, v. 107, p. 576-604. 2014. Disponível em: http://dx.doi.org/10.1016/j.solener.2014.05.030. Acesso em: 17 ago. 2021.
+SINGH, Rhythm; BANERJEE, Rangan. Estimation of rooftop solar photovoltaic potential of a city. Solar Energy, v. 115, p. 589-602. 2015. Disponível em: 10.1016/j.solener.2015.03.016. Acesso em: 23 nov. 2021.
+SUPEREPI. Luva Isolante de Borracha Alta Tensão Novax Classe 0 1000V CA 38104, 2021. Disponível em: https://www.superepi.com.br/-p1048703. Acesso em: 22 nov. 2021.
+UNITED NATIONS FRAMEWORK CONVENTION CLIMATE CHANGE. Paris Agreement - Brazil’s Nationally Determined Contribution (NDC). 2020. Disponível em: https://www4.unfccc.int/sites/NDCStaging/Pages/Party.aspx?party=BRA. Acesso em: 03 out. 2021.
+UNIVERSIDADE FEDERAL ESPÍRITO SANTO. ANEXO III - Rotinas de Manutenção Preventiva. 2021. Disponível em: https://protocolo.ufes.br/#/documentos/3181695/pecas/. Acesso em: 29 nov. 2021.
+VALERINO, Michael et al. Seasonal photovoltaic soiling: Analysis of size and composition of deposited particulate matter. Solar Energy, v. 227, p. 44-55. 2021. Disponível em: https://doi.org/10.1016/j.solener.2021.08.080. Acesso em: 08 out. 2021.
+ZAIHIDEE, Fardila M. et al. Dust as an unalterable deteriorative factor affecting PV panel's efficiency: Why and how. Renewable and Sustainable Energy Reviews, v. 65, p. 1267–1278. 2016. Disponível em: http://dx.doi.org/10.1016/j.rser.2016.06.068. Acesso em: 17 ago. 2021.
+– DATASHEET DO INVERSOR GW35KLV-MT
+– DATASHEET DO MÓDULO JAM60S03 300-320/PR

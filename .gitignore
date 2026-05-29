@@ -17,6 +17,6 @@ Thumbs.db
 .vscode/
 
 # Docs
-example/
-doc/_extracted/
-doc/_old/
+# example/
+# doc/_extracted/
+# doc/_old/
