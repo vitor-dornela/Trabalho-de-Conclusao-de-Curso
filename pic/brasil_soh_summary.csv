@@ -7,7 +7,7 @@ Consumo mensal (kWh),200
 Estratégia,Greedy
 Qnom (kWh),5
 Dias simulados,1825
-SOH final,0.805467
-SOH mín,0.805467
-T1 médio (W),-616.6
-T4 médio (W),931.8
+SOH@1ano,0.9169
+SOH final,0.8055
+Classificação,Atenção
+EOL estimado (anos),5.2

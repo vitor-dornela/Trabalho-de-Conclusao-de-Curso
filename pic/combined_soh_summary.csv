@@ -1,4 +1,5 @@
-Perfil,Dias,SOH@1ano,SOH final,Classificação,EOL est. (anos)
+Perfil,Período (dias),SOH@1 ano,SOH final,Classificação,EOL est. (anos)
 Residencial Alemão A,495,0.9405,0.9279,Saudável,4.9
 Residencial Alemão B,847,0.9316,0.8956,Atenção,4.9
 Residencial Alemão C,694,0.9403,0.9216,Saudável,6.3
+Residencial Brasil,1825,0.9169,0.8055,Atenção,5.2

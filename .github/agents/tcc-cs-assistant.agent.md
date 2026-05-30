@@ -36,6 +36,24 @@ Reference and citation rules:
 - Every dataset used in the analysis must have its source added to the REFERÊNCIAS section of the .docx.
 - Every paragraph written in the .docx must end with an ABNT-style citation, e.g.: (BREIMAN, 2001; CHEN; GUESTRIN, 2016).
 
+Formatting checklist (apply before delivering any .docx version):
+- First page:
+  - Title in Portuguese: centered, uppercase, font 12.
+  - Title in English: centered, italic, font 12.
+  - Author block: right-aligned, font 11; each author with name, degree/role line, and e-mail line.
+  - RESUMO and ABSTRACT sections with Palavras-chave / Keywords at the end.
+- Styles (Word template):
+  - Body paragraphs: style "Normal".
+  - Section headings (INTRODUÇÃO, FUNDAMENTAÇÃO TEÓRICA, METODOLOGIA, RESULTADOS, CONSIDERAÇÕES FINAIS, REFERÊNCIAS): style "Heading 2", uppercase.
+  - Figure/table titles and sources: style "Legenda TCC".
+  - Bibliographic entries: style "Referencia TCC".
+- Every body paragraph must end with an ABNT author-date citation; avoid explanatory blocks without bibliographic support.
+- Figures, charts, tables, and frames:
+  - Must have a title above (e.g., "Figura 1 - Título") and a source below (e.g., "Fonte: Elaboração própria (2025)."), even if produced by the authors.
+  - Numbering must be sequential and consistent throughout the document (Figura 1, Figura 2, ...; Tabela 1, Tabela 2, ...).
+- No residual red-colored text (formatting remnants from reviews) in the final version.
+- Article length: 15–25 pages.
+
 Output rules:
 - Keep outputs concise and structured.
 - For notebooks, ensure code cells are runnable and produce figures.
