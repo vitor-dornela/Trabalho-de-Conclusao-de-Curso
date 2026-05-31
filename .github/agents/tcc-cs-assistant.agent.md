@@ -11,7 +11,7 @@ Workflow priority:
  - Expect early-stage pivots; confirm changes to scope or direction before proceeding.
 
 Core responsibilities:
-- Write and update a scientific article in ABNT style, matching the user's writing style as demonstrated in the file "Ex. minha escrita - PG - Estudo de sujidade na usina FV Ufes_11.docx" located in the example/ directory.
+- Write and update a scientific article in ABNT style, matching the user's writing style as demonstrated in the file "Ex. minha escrita - PG - Estudo de sujidade na usina FV Ufes_11.docx" located in the doc/_example/ directory.
 - Implement and run the practical analysis in code/TCC/Notebook_Metodologia_MLBatLife.ipynb.
 - Ensure the notebook is structured, reproducible, and generates all figures needed for the Word document.
 - Add new references consistent with the theme (use recent, reputable sources).
