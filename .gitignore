@@ -15,10 +15,9 @@ __pycache__/
 Thumbs.db
 .vscode/
 
-# Docs
-# example/
-# doc/_extracted/
-# doc/_old/
-
-code/MLBatLife/
-code/TCC/
+# Pastas que começam com _ ou . (exceto .github)
+**/_*/
+.*
+!.gitignore
+!.gitattributes
+!.github/
