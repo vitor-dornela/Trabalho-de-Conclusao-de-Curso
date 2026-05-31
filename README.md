@@ -11,7 +11,7 @@ Orientador: Prof. Dr. Wesley Pereira da Silva
 
 ## Resumo
 
-Este trabalho propõe o uso do projeto [MLBatLife](https://github.com/jluqueuni/MLBatLife) como base para um modelo preditivo capaz de estimar o **estado de saúde (SOH)** e o **fim da vida útil (EOL)** de baterias aplicadas a sistemas fotovoltaicos. A partir de perfis de potência residual (demanda menos geração) e de um modelo Random Forest pré-treinado, são extraídas *features* diárias e estimado o SOH ao longo do tempo. Limiares operacionais (≥ 0,90 "Saudável"; 0,80–0,90 "Atenção"; < 0,80 "Fim de vida"), métricas de regressão e gráficos de análise apoiam a manutenção preditiva e a redução de falhas inesperadas.
+Este trabalho propõe o uso do projeto [MLBatLife](https://github.com/joaquinluque/MLBatLife) como base para um modelo preditivo capaz de estimar o **estado de saúde (SOH)** e o **fim da vida útil (EOL)** de baterias aplicadas a sistemas fotovoltaicos. A partir de perfis de potência residual (demanda menos geração) e de um modelo Random Forest pré-treinado, são extraídas *features* diárias e estimado o SOH ao longo do tempo. Limiares operacionais (≥ 0,90 "Saudável"; 0,80–0,90 "Atenção"; < 0,80 "Fim de vida"), métricas de regressão e gráficos de análise apoiam a manutenção preditiva e a redução de falhas inesperadas.
 
 ## Estrutura do Repositório
 
