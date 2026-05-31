@@ -95,7 +95,6 @@ As figuras são salvas automaticamente em `code/data/pic/`.
 
 - **Python 3.12** · NumPy · Pandas · Matplotlib · scikit-learn 1.4.0
 - **MLBatLife** (Luque *et al.*, 2025) — Random Forest com 50 estimadores, `max_depth=30`
-- **python-docx** — geração programática do artigo (.docx)
 
 ## Referências Principais
 
