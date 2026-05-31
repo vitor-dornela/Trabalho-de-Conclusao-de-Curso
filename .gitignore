@@ -15,9 +15,8 @@ __pycache__/
 Thumbs.db
 .vscode/
 
-# Pastas que começam com _ ou . (exceto .github)
+# Pastas que começam com _ ou .
 **/_*/
 .*
 !.gitignore
 !.gitattributes
-!.github/
