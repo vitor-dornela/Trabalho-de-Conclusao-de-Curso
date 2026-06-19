@@ -3,7 +3,7 @@
 > **Predictive Model for Estimating Battery State of Health and End of Life in Photovoltaic Systems**
 
 Trabalho de Conclusão de Curso (TCC) — Ciência da Computação / Sistemas de Informação  
-Centro Universitário Espírito-santense — FAESA 
+Centro Universitário Espírito-santense — FAESA  
 Autores: Nicolas Lima Rosário · Vitor Dornela Mascarenhas  
 Orientador: Prof. Dr. Wesley Pereira da Silva
 
